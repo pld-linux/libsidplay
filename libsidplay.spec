@@ -11,6 +11,7 @@ Patch0:		%{name}-gcc34.patch
 URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,6 +30,7 @@ Summary:	Header files for compiling apps that use libsidplay
 Summary(pl):	Pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych libsidplay
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 This package contains the header files for compiling applications that
