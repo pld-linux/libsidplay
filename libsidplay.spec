@@ -2,7 +2,7 @@ Summary:	A Commodore 64 music player and SID chip emulator library
 Summary(pl):	Biblioteka odtwarzaj±ca muzyczki z Commodore 64 i emuluj±ca uk³ad SID
 Name:		libsidplay
 Version:	1.36.57
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	http://www.geocities.com/SiliconValley/Lakes/5147/sidplay/packages/%{name}-%{version}.tgz
@@ -26,7 +26,7 @@ Przy jej pomocy mo¿na odtwarzaæ muzyczki z programów dla Commodore 64
 Summary:	Header files for compiling apps that use libsidplay
 Summary(pl):	Pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych libsidplay
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This package contains the header files for compiling applications that
@@ -40,6 +40,7 @@ biblioteki libsidplay.
 Summary:	Static libsidplay library
 Summary(pl):	Statyczna biblioteka libsidplay
 Group:		Libraries
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libsidplay.
@@ -57,7 +58,8 @@ Ten pakiet zawiera statyczn± wersjê libsidplay.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
