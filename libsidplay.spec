@@ -2,7 +2,7 @@ Summary:	A Commodore 64 music player and SID chip emulator library
 Summary(pl):	Biblioteka odtwarzaj±ca muzyczki z Commodore 64 i emuluj±ca uk³ad SID
 Name:		libsidplay
 Version:	1.36.57
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries
 Source0:	http://www.geocities.com/SiliconValley/Lakes/5147/sidplay/packages/%{name}-%{version}.tgz
@@ -60,6 +60,7 @@ cp -f /usr/share/automake/config.sub scripts/
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
