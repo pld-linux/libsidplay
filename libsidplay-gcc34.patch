@@ -1,0 +1,16 @@
+diff -urN aa/libsidplay-1.36.57/src/smart.h libsidplay-1.36.57/src/smart.h
+--- aa/libsidplay-1.36.57/src/smart.h	2001-12-29 00:10:17.000000000 +0100
++++ libsidplay-1.36.57/src/smart.h	2004-06-26 18:02:08.684980800 +0200
+@@ -223,6 +223,12 @@
+             status = false;
+         }
+     }
++ protected:
++    T* pBufCurrent;
++    T* bufBegin;
++    T* bufEnd;
++    ulint bufLen;
++    bool status;
+ };
+ 
+ #endif  /* SIDPLAY1_SMART_H */
