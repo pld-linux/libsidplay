@@ -53,7 +53,7 @@ Ten pakiet zawiera statyczn± wersjê libsidplay.
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub .
+cp -f /usr/share/automake/config.sub scripts/
 %{__autoconf}
 %configure
 %{__make}
