@@ -1,11 +1,13 @@
+Summary:	A Commodore 64 music player and SID chip emulator library
+Summary(pl):	Biblioteka odtwarzaj±ca muzyczki z Commodore 64 i emuluj±ca uk³ad SID
 Name:		libsidplay
-Summary:	A Commodore 64 music player and SID chip emulator library.
 Version:	1.36.57
 Release:	1
-Group:		Libraries
 License:	GPL
+Group:		Libraries
 Source0:	http://www.geocities.com/SiliconValley/Lakes/5147/sidplay/packages/%{name}-%{version}.tgz
 URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -13,20 +15,36 @@ This library provides the Sound Interface Device (SID) chip emulator
 engine that is used by music player programs like SIDPLAY. With it you
 can play musics from Commodore 64 (or compatible) programs.
 
-%package -n libsidplay-devel
-Summary:	Header files for compiling apps that use libsidplay.
-Group:		Libraries
+%description -l pl
+Ta biblioteka zawiera emulator uk³adu SID (Sound Interface Device),
+który jest u¿ywany przez programy odtwarzaj±ce muzykê jak np. SIDPLAY.
+Przy jej pomocy mo¿na odtwarzaæ muzyczki z programów dla Commodore 64
+(i kompatybilnych).
 
-%description -n libsidplay-devel
+%package devel
+Summary:	Header files for compiling apps that use libsidplay
+Summary(pl):	Pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych libsidplay
+Group:		Libraries
+Requires:	%{name} = %{version}
+
+%description devel
 This package contains the header files for compiling applications that
 use libsidplay.
 
-%package -n libsidplay-static
-Summary:	Static files for libsidplay.
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych
+biblioteki libsidplay.
+
+%package static
+Summary:	Static libsidplay library
+Summary(pl):	Statyczna biblioteka libsidplay
 Group:		Libraries
 
-%description -n libsidplay-static
-This package contains static files of libsidplay.
+%description static
+This package contains static version of libsidplay.
+
+%description static -l pl
+Ten pakiet zawiera statyczn± wersjê libsidplay.
 
 %prep
 %setup -q
@@ -43,17 +61,21 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%{_libdir}/libsidplay.so*
+%doc AUTHORS
+%attr(755,root,root) %{_libdir}/libsidplay.so.*.*
 
-%files -n libsidplay-devel
+%files devel
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING DEVELOPER
-%doc src/fastforward.txt src/format.txt src/mixing.txt src/mpu.txt src/panning.txt
-%{_includedir}/sidplay
+%doc DEVELOPER src/fastforward.txt src/format.txt src/mixing.txt src/mpu.txt src/panning.txt
+%attr(755,root,root) %{_libdir}/libsidplay.so
 %{_libdir}/libsidplay.la
+%{_includedir}/sidplay
 
-%files -n libsidplay-static
+%files static
 %defattr(644,root,root,755)
 %{_libdir}/libsidplay.a
