@@ -1,12 +1,12 @@
 Summary:	A Commodore 64 music player and SID chip emulator library
 Summary(pl):	Biblioteka odtwarzaj±ca muzyczki z Commodore 64 i emuluj±ca uk³ad SID
 Name:		libsidplay
-Version:	1.36.57
-Release:	3
+Version:	1.36.59
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://www.geocities.com/SiliconValley/Lakes/5147/sidplay/packages/%{name}-%{version}.tgz
-# Source0-md5:	a935ec67d5600b079e22ecac58cc19d5
+# Source0-md5:	37c51ba4bd57164b1b0bb7b43b9adece
 Patch0:		%{name}-gcc34.patch
 URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
 BuildRequires:	autoconf
