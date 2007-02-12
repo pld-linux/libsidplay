@@ -1,5 +1,5 @@
 Summary:	A Commodore 64 music player and SID chip emulator library
-Summary(pl):	Biblioteka odtwarzaj±ca muzyczki z Commodore 64 i emuluj±ca uk³ad SID
+Summary(pl.UTF-8):   Biblioteka odtwarzajÄ…ca muzyczki z Commodore 64 i emulujÄ…ca ukÅ‚ad SID
 Name:		libsidplay
 Version:	1.36.59
 Release:	2
@@ -19,15 +19,15 @@ This library provides the Sound Interface Device (SID) chip emulator
 engine that is used by music player programs like SIDPLAY. With it you
 can play musics from Commodore 64 (or compatible) programs.
 
-%description -l pl
-Ta biblioteka zawiera emulator uk³adu SID (Sound Interface Device),
-który jest u¿ywany przez programy odtwarzaj±ce muzykê jak np. SIDPLAY.
-Przy jej pomocy mo¿na odtwarzaæ muzyczki z programów dla Commodore 64
+%description -l pl.UTF-8
+Ta biblioteka zawiera emulator ukÅ‚adu SID (Sound Interface Device),
+ktÃ³ry jest uÅ¼ywany przez programy odtwarzajÄ…ce muzykÄ™ jak np. SIDPLAY.
+Przy jej pomocy moÅ¼na odtwarzaÄ‡ muzyczki z programÃ³w dla Commodore 64
 (i kompatybilnych).
 
 %package devel
 Summary:	Header files for compiling apps that use libsidplay
-Summary(pl):	Pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych libsidplay
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe do budowania aplikacji uÅ¼ywajÄ…cych libsidplay
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -36,21 +36,21 @@ Requires:	libstdc++-devel
 This package contains the header files for compiling applications that
 use libsidplay.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe do budowania aplikacji u¿ywaj±cych
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe do budowania aplikacji uÅ¼ywajÄ…cych
 biblioteki libsidplay.
 
 %package static
 Summary:	Static libsidplay library
-Summary(pl):	Statyczna biblioteka libsidplay
+Summary(pl.UTF-8):   Statyczna biblioteka libsidplay
 Group:		Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libsidplay.
 
-%description static -l pl
-Ten pakiet zawiera statyczn± wersjê libsidplay.
+%description static -l pl.UTF-8
+Ten pakiet zawiera statycznÄ… wersjÄ™ libsidplay.
 
 %prep
 %setup -q
