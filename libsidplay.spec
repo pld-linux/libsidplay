@@ -12,6 +12,7 @@ URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
