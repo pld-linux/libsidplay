@@ -1,18 +1,18 @@
 Summary:	A Commodore 64 music player and SID chip emulator library
 Summary(pl.UTF-8):	Biblioteka odtwarzająca muzyczki z Commodore 64 i emulująca układ SID
 Name:		libsidplay
-Version:	1.36.59
-Release:	3
-License:	GPL
+Version:	1.36.60
+Release:	1
+License:	GPL v2+
 Group:		Libraries
-Source0:	http://www.geocities.com/SiliconValley/Lakes/5147/sidplay/packages/%{name}-%{version}.tgz
-# Source0-md5:	37c51ba4bd57164b1b0bb7b43b9adece
-Patch0:		%{name}-gcc34.patch
-URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
+Source0:	http://home.arcor.de/ms2002sep/bak/%{name}-%{version}.tar.bz2
+# Source0-md5:	46c5ceccd31636e3f83774dd0b3d4003
+# dead together with geocities
+#URL:		http://www.geocities.com/SiliconValley/Lakes/5147/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +29,7 @@ Przy jej pomocy można odtwarzać muzyczki z programów dla Commodore 64
 %package devel
 Summary:	Header files for compiling apps that use libsidplay
 Summary(pl.UTF-8):	Pliki nagłówkowe do budowania aplikacji używających libsidplay
-Group:		Libraries
+Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
 
@@ -44,7 +44,7 @@ biblioteki libsidplay.
 %package static
 Summary:	Static libsidplay library
 Summary(pl.UTF-8):	Statyczna biblioteka libsidplay
-Group:		Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
@@ -55,13 +55,12 @@ Ten pakiet zawiera statyczną wersję libsidplay.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub scripts/
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
@@ -80,11 +79,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS
-%attr(755,root,root) %{_libdir}/libsidplay.so.*.*
+%attr(755,root,root) %{_libdir}/libsidplay.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsidplay.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%doc DEVELOPER src/fastforward.txt src/format.txt src/mixing.txt src/mpu.txt src/panning.txt
+%doc DEVELOPER src/fastforward.txt src/mixing.txt src/mpu.txt src/panning.txt
 %attr(755,root,root) %{_libdir}/libsidplay.so
 %{_libdir}/libsidplay.la
 %{_includedir}/sidplay
